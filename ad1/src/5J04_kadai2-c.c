@@ -13,18 +13,20 @@ int main() {
 
 int getMax(int *data, int size) {
     int buf = data[0];
-    for(int i=0; i<size; i++){
-        buf = buf - ((buf - data[i]) & ((buf - data[i]) >> 31));
-    }
+    do{
+        buf = buf - ((buf - *data) & ((buf - *data) >> 31));
+        data++;
+    }while(--size);
 
     return buf;
 }
 
 int getMin(int *data, int size) {
     int buf = data[0];
-    for(int i=0; i<size; i++){
-        buf = buf + ((data[i] - buf) & ((data[i] - buf) >> 31));
-    }
+    do{
+        buf = buf + ((*data - buf) & ((*data - buf) >> 31));
+        data++;
+    }while(--size);
 
     return buf;
 }
