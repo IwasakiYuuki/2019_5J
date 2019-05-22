@@ -1,4 +1,4 @@
-//2019年度・課題2-1-2・出席番号４番
+//2019年度・課題2-1-3・出席番号４番
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -317,13 +317,13 @@ void ampSpectrum(comp *Xk, int N, double *spec){
 	int k=0;
 
 	for(k=0;k<N;k++){
-		spec[k] = sqrt(Xk[k].re*Xk[k].re + Xk[k].im*Xk[k].im);
+		spec[k] = Xk[k].re + Xk[k].im;
 //		spec[k] = Xk[k].re*Xk[k].re + Xk[k].im*Xk[k].im;
-		if(spec[k] <= EPSILON){
-			spec[k] = 0;
-		}else{
+//		if(spec[k] <= EPSILON){
+//			spec[k] = 0;
+//		}else{
 //			spec[k] = 20 * log10(spec[k]);
-		}
+//		}
 	}
 }
 
