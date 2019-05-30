@@ -9,15 +9,15 @@ int main(){
     clock_t start, end;
     start = clock();
     swap_1(3, 2);
-    end = clock;
+    end = clock();
     printf("time = %lf\n", (double)(end-start)/CLOCKS_PER_SEC);
     start = clock();
     swap_2(3, 2);
-    end = clock;
+    end = clock();
     printf("time = %lf\n", (double)(end-start)/CLOCKS_PER_SEC);
     start = clock();
     swap_3(3, 2);
-    end = clock;
+    end = clock();
     printf("time = %lf\n", (double)(end-start)/CLOCKS_PER_SEC);
     return 0;
 }
