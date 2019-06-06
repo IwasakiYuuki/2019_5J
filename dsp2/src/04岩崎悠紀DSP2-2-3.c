@@ -42,7 +42,6 @@ typedef struct{
     uint8_t blue;
     uint8_t green;
     uint8_t red;
-    uint8_t reserved;
 } bmp_rgb;
 
 typedef struct{
@@ -64,6 +63,11 @@ int main(){
     bmp *bmp_data;
     bmp_data = (bmp *)malloc(sizeof(bmp));
     get_bmp_from_filename(filename, bmp_data);
+    printf("============RESULT============\n");
+    printf("1個目：    RGB (%3hhu, %3hhu, %3hhu)\n", bmp_data->rgb_data[0][0].red, bmp_data->rgb_data[0][0].green, bmp_data->rgb_data[0][0].blue);
+    printf("5000個目： RGB (%3hhu, %3hhu, %3hhu)\n", bmp_data->rgb_data[41][79].red, bmp_data->rgb_data[41][79].green, bmp_data->rgb_data[41][79].blue);
+    printf("14400個目：RGB (%3hhu, %3hhu, %3hhu)\n", bmp_data->rgb_data[119][119].red, bmp_data->rgb_data[119][119].green, bmp_data->rgb_data[119][119].blue);
+    printf("==============================\n");
 }
 
 /**
@@ -156,7 +160,6 @@ void get_bmp_rgb_data(FILE *fp, bmp *bmp_data, int32_t width, int32_t height){
             fread(&(data[h][w].blue), 1, 1, fp);
             fread(&(data[h][w].green), 1, 1, fp);
             fread(&(data[h][w].red), 1, 1, fp);
-            fread(&(data[h][w].reserved), 1, 1, fp);
         }
     }
 }
